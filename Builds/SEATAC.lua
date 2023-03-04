@@ -3296,7 +3296,7 @@ end
 
 -- Callback function for Birth Events
 function SEATAC:OnEventTakeoff(Event)
-    MESSAGE:New('Test'):ToAll()
+    MESSAGE:New('Something Else'):ToAll()
 end
 
 -- Create a new instance of your class.
