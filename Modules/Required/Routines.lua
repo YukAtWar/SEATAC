@@ -125,6 +125,18 @@ ROUTINES.file.isDir = function(dirName)
     end
 end
 
+ROUTINES.file.GetFilesInDir = function(Directory)
+    local Files = {}
+
+    for File in lfs.dir(Directory) do
+        if ROUTINES.file.isFile(Directory .. File) then
+            Files[File] = Directory .. File
+        end
+    end
+
+    return Files
+end
+
 ROUTINES.file.EDSerialize = function(Name, Value, Level, File)
     if Level == nil then Level = "" end
 
@@ -234,4 +246,14 @@ ROUTINES.string.split = function(String, Sep)
     end
 
     return t
+end
+
+ROUTINES.string.firstChar = function(String)
+    if not type(String) == 'string' then return false end
+
+    return string.sub(String, 1, 1)
+end
+
+ROUTINES.string.UpperFirstChar = function(String)
+    return (string.upper(string.sub(String, 1, 1))) .. string.lower(string.sub(String, 2))
 end
